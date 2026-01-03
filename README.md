@@ -5,6 +5,8 @@ A Java 17 console application built using Object-Oriented Programming, feature-b
 ✨ Features
 
 - Java 17
+
+- Java 8 features(Lambda, Stream API,..)
   
 - Object-Oriented Design (OOP)
   
