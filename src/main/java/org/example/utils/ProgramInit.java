@@ -21,6 +21,7 @@ public class ProgramInit {
         products.add(new GenericProduct("cheese", 25, 5,GenericProduct._1_1_2026,0.25 ));
         products.add(new GenericProduct("tv", 1300, 2,GenericProduct.NOT_EXPIRABLE,20 ));
         products.add(new GenericProduct("biscuits", 5, 10,GenericProduct._1_1_2027,0.01 ));
+        products.add(new GenericProduct("water", 5, 10,GenericProduct._1_1_2027,0.25 ));
         products.add(new GenericProduct("mobile", 4000, 1,GenericProduct.NOT_EXPIRABLE,1 ));
         products.add(new GenericProduct("scratchcard", 10, 15,GenericProduct.NOT_EXPIRABLE,GenericProduct.NOT_SHIPPABLE ));
         customers.add(new Customer(1, "Basem Ahmed", "basem522001", "12345", 10000));
@@ -28,14 +29,7 @@ public class ProgramInit {
     }
 
 
-    public static List<CartValidator> createValidators(){
 
-        List<CartValidator> validators = new ArrayList<>();
-        validators.add(new QuantityValidator());
-        validators.add(new StockValidator());
-        return validators;
-
-    }
 
 
 

@@ -56,7 +56,7 @@ public class Main {
 
                    try {
 
-                       System.out.println("\n1. Add product to cart \t 2. Display cart \t 3. Checkout \t 4. Logout \t 5. Remove product");
+                       System.out.println("\n1. Add product to cart \t 2. Remove product from cart \t 3. Display cart \t 4. Checkout \t 5. Logout ");
                        Scanner scan = new Scanner(System.in);
                        int in = scan.nextInt();
                        switch (in){
@@ -64,16 +64,16 @@ public class Main {
                                cartService.saveProductToCart();
                                continue;
                            case 2:
-                               cartService.displayCart();
+                               cartService.removeProductFromCart();
                                continue;
                            case 3:
+                               cartService.displayCart();
+                               continue;
+                           case 4:
                                checkOutInfoDto = checkOutService.checkOut(shippingService.getShippingInfo());
                                break;
-                           case 4:
-                               signedIn = false;
-                               continue;
                            case 5:
-                               cartService.removeProductFromCart();
+                               signedIn = false;
                                continue;
                            default:
                                System.out.println("Invalid input");

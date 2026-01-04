@@ -11,22 +11,25 @@ public class ProductService {
 
     public static void displayProducts(){
         List<GenericProduct> l = ProgramInit.products.stream().filter(p -> p.getQuantity() != 0).toList();
-        System.out.println("    Product    |    Price    |    Quantity    \n");
+        String format = "%15s  | %15s  | %15s  |\n";
+        System.out.println("_ ".repeat(28));
+        System.out.printf(format,"Product","Price", "Quantity");
+        System.out.println("_ ".repeat(28));
         for(GenericProduct g:l){
-            System.out.println(g);
+            System.out.printf(format,g.getName(),g.getPrice(),g.getQuantity());
         }
+        System.out.println("_ ".repeat(28));
 
     }
 
 
     public static GenericProduct findProductByName(String name){
 
-        GenericProduct product = ProgramInit.products
+        return ProgramInit.products
                 .stream()
                 .filter(p -> p.getName().equals(name))
-                .findAny().orElseThrow( () -> new ProductNotFoundException("Product not found"));
+                .findAny().orElseThrow( () -> new ProductNotFoundException("Product with name:" + name + " not found"));
 
-        return product;
     }
 
     public static void reduceProductQuantity(GenericProduct product, int quantity){

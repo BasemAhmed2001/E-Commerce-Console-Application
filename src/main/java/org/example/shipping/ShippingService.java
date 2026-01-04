@@ -18,16 +18,6 @@ public class ShippingService {
     }
 
 
-//    public double calculateShippingFees(){
-//
-//        double totalWeight = 0;
-//        for(Map.Entry<GenericProduct, Integer> product : cart.getProducts().entrySet()){
-//            totalWeight =+ product.getKey().getWeight();
-//        }
-//        double totalPrice = Math.ceil(totalWeight) * RATE_FOR_KG;
-//        return totalPrice;
-//
-//    }
 
 
     public ShippingInfoDto getShippingInfo(){

@@ -30,15 +30,15 @@ public class CheckOutService {
     public double calculateSubTotal(){
 
         if(cart.isEmpty()){
-            handleException(new CartEmptyException("Cart with customer id: " + cart.getCustomerId() + " is Empty"));
+            throw new CartEmptyException("Cart with customer id: " + cart.getCustomerId() + " is Empty");
         }
         double subTotal = 0;
         Map<GenericProduct, Integer> products = cart.getProducts();
 
         for(Map.Entry<GenericProduct, Integer> p : products.entrySet()){
-            subTotal += p.getKey().getPrice();
+            subTotal += p.getKey().getPrice() *  p.getValue();
         }
-
+        System.out.println(subTotal);
         return subTotal;
 
     }
@@ -108,7 +108,7 @@ public class CheckOutService {
         System.out.println("ـ".repeat(33) );
         System.out.printf("Subtotal: %22s", info.subTotal);
         System.out.printf("\nShipping fees: %17s", info.getShippingInfoDto().getShippingFees());
-        System.out.printf("\nTotal: %24s\n", info.total);
+        System.out.printf("\nTotal: %25s\n", info.total);
     }
 
 

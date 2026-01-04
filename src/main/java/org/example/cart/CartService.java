@@ -17,8 +17,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 import static org.example.product.ProductService.*;
-import static org.example.utils.ProgramInit.createValidators;
-
 public class CartService {
 
     Cart cart;
@@ -32,25 +30,7 @@ public class CartService {
 
 
 
-    public void addToCart(String productName, int quantity){
 
-        GenericProduct product = findProductByName(productName);
-        if(isProductExistInCart(productName)){
-            int q = findProductInCartByName(productName).getValue();
-            cart.getProducts().put(product, q+quantity );
-            return;
-        }else if(product.getQuantity() <= 0 ){
-            throw new ProductOutOfStockException(productName + " is out of stock right now");
-        }else if(quantity > product.getQuantity()){
-            throw new NotEnoughQuantityException("Amount(" + quantity +") required is not available, try another quantity");
-        }else if(product.isExpired()){
-            throw new ProductExpiredException("Product:" + productName + " is expired");
-        }
-        cart.getProducts().put(product, quantity);
-        System.out.println(quantity + "x " + productName + " is added to cart.");
-
-
-    }
 
 
     public void saveProductToCart(){
@@ -62,7 +42,7 @@ public class CartService {
         System.out.println("Enter quantity:");
         int quantity =  sc.nextInt();
         cartCommand.execute(productName, quantity);
-        System.out.println(quantity + "x " + productName + " is added to cart.");
+        System.out.println(quantity + "x " + productName + " added to cart.");
 
     }
 
@@ -88,16 +68,6 @@ public class CartService {
 
 
 
-    public void addProductToCart(){
-        displayProducts();
-        System.out.println("Enter name of product:");
-        Scanner sc = new Scanner(System.in);
-        String productName = sc.nextLine().trim().toLowerCase();
-        System.out.println("Enter quantity:");
-        int quantity =  sc.nextInt();
-        addToCart(productName,quantity);
-
-    }
 
 
     public void removeProductFromCart(){
@@ -114,6 +84,7 @@ public class CartService {
         } else {
             reduceQuantityInCart(productName,quantity);
         }
+        System.out.println(quantity + "x " +productName + " removed from cart");
     }
 
 
@@ -145,7 +116,7 @@ public class CartService {
                 .stream()
                 .filter(p -> p.getKey().getName().equals(productName))
                 .findFirst()
-                .orElseThrow(() -> new ProductNotFoundException(productName + " not found"));
+                .orElseThrow(() -> new ProductNotFoundException("Product with name:" + productName + " not found"));
         return cartProduct;
     }
 
