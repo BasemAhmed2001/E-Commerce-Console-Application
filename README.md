@@ -109,8 +109,8 @@ Centralized exception handling
   - Intellij Ultimate
   - The initial username and passwords:
     - User 1:
-          username: "basem522001"
-          password: "12345"
+      - username: "basem522001"
+      - password: "12345"
     - User 2:
-          username: "ahmed"
-          password: "6789"
+      - username: "ahmed"
+      - password: "6789"
