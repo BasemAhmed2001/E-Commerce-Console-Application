@@ -56,11 +56,11 @@ Each package represents a single business feature, ensuring low coupling and hig
 
 The application generates a formatted cash receipt including:
 
-Shipping details and total weight
+- Shipping details and total weight
 
-Itemized checkout information
+- Itemized checkout information
 
-Subtotal, shipping fees, and final total
+- Subtotal, shipping fees, and final total
 
 
         ********  CASH RECEIPT  ********
@@ -88,25 +88,26 @@ Subtotal, shipping fees, and final total
 
 🛠 Technologies
 
-Java 17
+- Java 17
 
-IntelliJ IDEA
+- IntelliJ IDEA
 
-Console I/O
+- Console I/O
 
 
 📌 Concepts Applied
 
-Encapsulation, Inheritance, Polymorphism, Abstraction
+- Encapsulation, Inheritance, Polymorphism, Abstraction
 
-Strategy & Command design patterns
+- Strategy & Command design patterns
 
-Centralized exception handling
+- Centralized exception handling
+
+- SOILD Principles
+
+  
 
 
-- To run the application:
-  - I used Java 17
-  - Intellij Ultimate
   - The initial username and passwords:
     - User 1:
       - username: "basem522001"
