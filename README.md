@@ -95,6 +95,7 @@ The application generates a formatted cash receipt including:
 - Console I/O
 
 
+
 📌 Concepts Applied
 
 - Encapsulation, Inheritance, Polymorphism, Abstraction
@@ -107,11 +108,10 @@ The application generates a formatted cash receipt including:
 
   
 
-
-  - The initial username and passwords:
-    - User 1:
-      - username: "basem522001"
-      - password: "12345"
-    - User 2:
-      - username: "ahmed"
-      - password: "6789"
+- The initial username and passwords:
+  - User 1:
+    - username: "basem522001"
+    - password: "12345"
+  - User 2:
+    - username: "ahmed"
+    - password: "6789"
