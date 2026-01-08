@@ -1,7 +1,7 @@
 package org.example.common;
 
 import org.example.cart.CartEmptyException;
-import org.example.customer.InSufficientBalance;
+import org.example.customer.InSufficientBalanceException;
 import org.example.product.NotEnoughQuantityException;
 import org.example.product.ProductNotFoundException;
 import org.example.product.ProductOutOfStockException;
@@ -24,7 +24,7 @@ public class GlobalExceptionHandling {
             System.out.println(ex.getMessage());
         }else if(ex instanceof NotEnoughQuantityException){
             System.out.println(ex.getMessage());
-        }else if(ex instanceof InSufficientBalance){
+        }else if(ex instanceof InSufficientBalanceException){
             System.out.println(ex.getMessage());
         } else if (ex instanceof InvalidCreadentialsException) {
             System.out.println(ex.getMessage());

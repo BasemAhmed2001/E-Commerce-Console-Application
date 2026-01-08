@@ -4,18 +4,16 @@ package org.example.checkout;
 import org.example.product.NotEnoughQuantityException;
 import org.example.shipping.ShippingInfoDto;
 import org.example.cart.CartEmptyException;
-import org.example.customer.InSufficientBalance;
+import org.example.customer.InSufficientBalanceException;
 import org.example.cart.Cart;
 import org.example.customer.Customer;
 import org.example.utils.GenericProduct;
 import org.example.utils.ProgramInit;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static org.example.common.GlobalExceptionHandling.handleException;
 import static org.example.customer.CustomerService.findCustomerById;
 
 public class CheckOutService {
@@ -68,7 +66,7 @@ public class CheckOutService {
         double total = subTotal + shippingInfoDto.getShippingFees();
         Customer customer = findCustomerById(cart.getCustomerId());
         if(customer.getBalance() < total){
-            throw new InSufficientBalance("Your balance is insufficient to pay: " + total + " EGP");
+            throw new InSufficientBalanceException("Your balance is insufficient to pay: " + total + " EGP");
         }
         customer.setBalance(customer.getBalance() - total);
 
